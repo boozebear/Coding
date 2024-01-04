@@ -16,17 +16,18 @@ void solve(){
     for(int i = 0; i < n; i++){
         if(s[i] == '.')ct++;
         else{
-            if(ct>=2)ans+=2;
-            else if(ct == 1)ans++;
+            if(ct<=2)ans+=ct;
+            else{
+                 ans = 2;
+                 break;
+            }
             ct = 0;
         }
-        //cout << ct << " ";
     }
 
     if(s[n-1]=='.'){
-        if(ct>=2)ans+=2;
-            else if(ct == 1)ans++;
-            ct = 0;
+        if(ct<=2)ans+=ct;
+        else ans=2;
     }
 
     cout << ans << endl;
