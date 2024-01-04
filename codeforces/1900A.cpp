@@ -11,15 +11,22 @@ void solve(){
 
     cin >> n >> s;
 
-    int ct = 0;
-    int ans = 0;
+    int ct = 0, ans = 0;
+
     for(int i = 0; i < n; i++){
         if(s[i] == '.')ct++;
         else{
             if(ct>=2)ans+=2;
-            if(ct == 1)ans++;
+            else if(ct == 1)ans++;
             ct = 0;
         }
+        //cout << ct << " ";
+    }
+
+    if(s[n-1]=='.'){
+        if(ct>=2)ans+=2;
+            else if(ct == 1)ans++;
+            ct = 0;
     }
 
     cout << ans << endl;
